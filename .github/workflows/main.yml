@@ -1,0 +1,21 @@
+name: Vault Integration
+on:
+  push:
+    branches:
+    - main
+    
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+  build:
+    runs-on: [self-hosted]
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - name: Import Secrets
+      uses: 'hashicorp/vault-action@v2.4.0'
+      with:
+        url: https://vault.infra.activision.com:8200
+        tlsSkipVerify: true
+        method: approle
