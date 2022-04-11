@@ -5,10 +5,8 @@ on:
     - main
     
 jobs:
-  lint:
-    runs-on: ubuntu-latest
   build:
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
